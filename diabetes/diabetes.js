@@ -49,7 +49,8 @@ main = () => {
 
                 $.ajax({
                     type : "POST",
-                    url : "http://127.0.0.1:10000/diabetes-infer/",
+                    // url : "http://127.0.0.1:10000/diabetes-infer/",
+                    url : "https://pcs-acsq-healthcare-demo-api.herokuapp.com/diabetes-infer/",
                     data : data,
                     success : (response) => {
                         console.log(" ---------- ")
@@ -61,8 +62,6 @@ main = () => {
                     error : (response) => {
                         console.log(" ---------- ")
                         console.log(`Failure, ${response["statusText"]}, ${response["statusCode"]}`)
-                        alert("No Models Found; please train by going to http://localhost:10000/diabetes-train/")
-                        console.log(" ---------- ")
                     },
                 })
             }

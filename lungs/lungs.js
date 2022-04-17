@@ -55,7 +55,8 @@ main = () => {
 
             $.ajax({
                 type : "POST",
-                url : "http://127.0.0.1:10000/pneu-pre-infer/",
+                // url : "http://127.0.0.1:10000/pneu-pre-infer/",
+                url : "https://pcs-acsq-healthcare-demo-api.herokuapp.com/pneu-pre-infer/",
                 data : data,
                 success : (response) => {
                     console.log(" ---------- ")
