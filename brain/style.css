@@ -1,0 +1,52 @@
+body{
+    background-color: lightblue;
+}
+
+h2{
+    font-size: 36px;
+    color: black;
+    text-align: center;
+}
+
+p{
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    text-align: center;
+}
+
+canvas{
+    background-color: gray;
+    border: 10px solid lightblue;
+}
+
+#div1{
+    border: 10px solid lightblue;
+}
+
+.sub_table{
+    border-top: 1px solid lightblue;
+    border-right: 10px solid lightblue;
+}
+
+#image_input{
+    background-color: gray;
+}
+
+#segment{
+    width: 125px;
+    color: black;
+}
+
+#reset{
+    width: 125px;
+    background-color: orange;
+    color: black;
+}
+
+#back{
+    width: 125px;
+    background-color: lightcoral;
+    color: black;
+}
+

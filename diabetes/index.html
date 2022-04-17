@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Insights</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container" id="div1" align="center">
+        <h2><strong>Diabetes Prediction<strong></h2>
+        <p>Please enter the details</p>
+    </div>
+    <div class="container" id="div2" align="center">
+        <table>
+            <tr>
+                <td>
+                    <pre>
+Pregnancies       : <input type="text" placeholder="[0-15]" id="pregnancies">
+Plasma Glucose    : <input type="text" placeholder="" id="plasma_glucose">
+Diastolic BP      : <input type="text" placeholder="" id="diastolic_blood_pressure">
+Triceps Thickness : <input type="text" placeholder="" id="triceps_thickness">
+Serum Insulin     : <input type="text" placeholder="" id="serum_insulin">
+BMI               : <input type="text" placeholder="" id="bmi">
+Diabetes Pedigree : <input type="text" placeholder="" id="diabetes_pedigree">
+Age               : <input type="text" placeholder="[1-100]" id="age">
+                    </pre>
+                </td>
+                <td id="column2">
+                    <textarea name="" id="output" placeholder="diabetes probability" cols="15" rows="5" readonly></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td class="sub_table">
+                                <button class="btn btn-primary" id="predict">Predict</button>
+                                
+                            </td>
+                            <td class="sub_table">
+                                <button class="btn btn-primary" id="reset">Reset</button>
+                            </td>
+                            <td class="sub_table">
+                                <form action="" method="">
+                                    <!-- <button class="btn btn-primary" id="back" formaction="C:\Repos\Healthcare-Demo-Web-Client\index.html">Back</button>    -->
+                                    <button class="btn btn-primary" id="back" formaction="http://localhost:9000/index.html">Back</button>   
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script src="diabetes.js"></script>
+</html>

@@ -1,0 +1,61 @@
+body{
+    background-color: lightblue;
+}
+
+td{
+    border: 50px solid lightblue;
+}
+
+pre{
+    color: black;
+    font-size: 18px;
+    border-top: 10px solid lightblue;
+}
+
+h2{
+    font-size: 36px;
+    color: black;
+    text-align: center;
+}
+
+p{
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    text-align: center;
+}
+
+table{
+    text-align: center;
+}
+
+textarea{
+    font-family: monospace;
+    font-size: 28px;
+}
+
+.sub_table{
+    border-top: 1px solid lightblue;
+    border-right: 15px solid lightblue;
+}
+
+#div1{
+    border: 10px solid lightblue;
+}
+
+#predict{
+    width: 125px;
+    color: black;
+}
+
+#reset{
+    width: 125px;
+    background-color: orange;
+    color: black;
+}
+
+#back{
+    width: 125px;
+    background-color: lightcoral;
+    color: black;
+}
