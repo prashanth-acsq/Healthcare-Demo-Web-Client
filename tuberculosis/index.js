@@ -1,26 +1,24 @@
 main = () => {
+    let precision = 5
+
     let image_input = document.querySelector("#image_input")
 
-    let preview_canvas_1 = document.querySelector("#preview_canvas_1")
-    let preview_ctx_1 = preview_canvas_1.getContext("2d")
-    let preview_w_1 = preview_canvas_1.getAttribute("width")
-    let preview_h_1 = preview_canvas_1.getAttribute("height")
-
-    let preview_canvas_2 = document.querySelector("#preview_canvas_2")
-    let preview_ctx_2 = preview_canvas_2.getContext("2d")
-    let preview_w_2 = preview_canvas_2.getAttribute("width")
-    let preview_h_2 = preview_canvas_2.getAttribute("height")
+    let preview_canvas = document.querySelector("#preview_canvas")
+    let preview_ctx = preview_canvas.getContext("2d")
+    let preview_w = preview_canvas.getAttribute("width")
+    let preview_h = preview_canvas.getAttribute("height")
 
     let hidden_canvas = document.querySelector("#hidden_canvas")
     let hidden_ctx = hidden_canvas.getContext("2d")
     let hidden_canvas_data = null
 
-    let preview_image_1 = new Image()
-    let preview_image_2 = new Image()
+    let preview_image = new Image()
     let hidden_image = new Image()
 
-    let segment = document.querySelector("#segment")
+    let predict = document.querySelector("#predict")
     let reset = document.querySelector("#reset")
+
+    let output = document.querySelector("#output")
 
     image_input.addEventListener("change", (e1) => {
         if(e1.target.files){
@@ -28,11 +26,11 @@ main = () => {
             let reader = new FileReader()
             reader.readAsDataURL(imageFile)
             reader.onload = (e2) => {
-                preview_image_1.src = e2.target.result
+                preview_image.src = e2.target.result
                 hidden_image.src = e2.target.result
 
                 hidden_image.onload = () => {
-                    preview_ctx_1.drawImage(preview_image_1, 0, 0, preview_w_1, preview_h_2)
+                    preview_ctx.drawImage(preview_image, 0, 0, preview_w, preview_h)
 
                     hidden_canvas.setAttribute("width", hidden_image.width)
                     hidden_canvas.setAttribute("height", hidden_image.height)
@@ -43,8 +41,7 @@ main = () => {
         }
     })
 
-
-    segment.addEventListener("click", () => {
+    predict.addEventListener("click", () => {
         if (hidden_canvas_data === null){
             alert("Please Upload an Image First")
         }
@@ -58,22 +55,14 @@ main = () => {
 
             $.ajax({
                 type : "POST",
-                // url : "http://127.0.0.1:10000/b-mri-infer/",
-                url : "https://pcs-acsq-healthcare-demo-api.herokuapp.com/b-mri-infer/",
+                url : "http://127.0.0.1:10000/tuberculosis-pre-infer/",
                 data : data,
                 success : (response) => {
                     console.log(" ---------- ")
                     console.log(`Success, ${response["statusText"]}, ${response["statusCode"]}`)
                     console.log(" ---------- ")
 
-                    // console.log(response["imageData"])                        
-
-                    hidden_image.src = response["imageData"]
-                    hidden_image.onload = () => {
-                        preview_image_2.src = response["imageData"]
-                        preview_ctx_2.drawImage(preview_image_2, 0, 0, preview_w_2, preview_h_2)
-                        hidden_ctx.drawImage(hidden_image, 0, 0, hidden_canvas.width, hidden_canvas.height)
-                    }
+                    output.value = (Number(response["probability"]) * 100).toPrecision(precision).toString() + " %"
                 },
                 error : (response) => {
                     console.log(" ---------- ")
@@ -86,13 +75,13 @@ main = () => {
 
     reset.addEventListener("click", () => {
         hidden_canvas_data = null
-        preview_image_1.src = ""
-        preview_image_2.src = ""
+        preview_image.src = ""
         hidden_image.src = ""
-        preview_ctx_1.clearRect(0, 0, preview_w_1, preview_h_1)
-        preview_ctx_2.clearRect(0, 0, preview_w_2, preview_h_2)
+        preview_ctx.clearRect(0, 0, preview_w, preview_h)
         image_input.value = ""
+        output.value = ""
     })
+
 }
 
 main()
