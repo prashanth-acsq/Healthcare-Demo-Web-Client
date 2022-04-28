@@ -80,7 +80,7 @@ main = () => {
     })
 
     reset.addEventListener("click", () => {
-        pregnancies.value = ""
+        gender.value = ""
         total_billrubin.value = ""
         direct_billrubin.value = ""
         alkphos_alkaline_phosphotase.value = ""
