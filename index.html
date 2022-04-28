@@ -14,12 +14,19 @@
     </div>
     <div class="container" id="div2" align="center">
         <form action="" method="">
-            <button class="btn btn-primary" id="diabetes" formaction="/diabetes">Diabetes Insights</button><br>
-            <button class="btn btn-primary" id="pneu_pred" formaction="/pneumonia">Pneumonia Prediction</button><br>
-            <button class="btn btn-primary" id="tube_pred" formaction="/tuberculosis">Tuberculosis Prediction</button><br>
-            <button class="btn btn-primary" id="brain_mri" formaction="/brain-abnormality/">Brain MRI Segmentation</button><br>
-            <section hidden>
-                <button class="btn btn-primary" id="liver_disease" formaction="/liver-disease/">Liver Disease Insights</button>
+            <section id="tabular">
+                <button class="btn btn-primary" id="diabetes" formaction="/diabetes">Diabetes Insights</button>
+                <section>
+                    <button class="btn btn-primary" id="liver_disease" formaction="/liver-disease/">Liver Disease Insights</button>
+                    <button class="btn btn-primary" id="cardiovascular_disease" formaction="/cardiovascular-disease/">Cardiovascular Disease Insights</button>
+                </section>
+            </section>
+            <section id="X-Rays">
+                <button class="btn btn-primary" id="pneu_pred" formaction="/pneumonia">Pneumonia Prediction</button>
+                <button class="btn btn-primary" id="tube_pred" formaction="/tuberculosis">Tuberculosis Prediction</button><br>
+            </section>
+            <section id="MRIS">
+                <button class="btn btn-primary" id="brain_mri" formaction="/brain-abnormality/">Brain MRI Segmentation</button><br>   
             </section>
         </form>
     </div>
