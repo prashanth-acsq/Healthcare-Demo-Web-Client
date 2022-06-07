@@ -1,1 +1,0 @@
-start /MAX cmd /k "cls && title CMD"
