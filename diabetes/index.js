@@ -34,23 +34,23 @@ main = () => {
             }
             else
             {
-                let data = {
-                    web_client_data : JSON.stringify({
-                        pregnancies : pregnancies.value,
-                        plasma_glucose : plasma_glucose.value,
-                        diastolic_blood_pressure : diastolic_blood_pressure.value,
-                        triceps_thickness : triceps_thickness.value,
-                        serum_insulin : serum_insulin.value,
-                        bmi : bmi.value,
-                        diabetes_pedigree : diabetes_pedigree.value,
-                        age : age.value,
-                    })
-                }
+                let data = JSON.stringify({
+                    pregnancies : pregnancies.value,
+                    plasma_glucose : plasma_glucose.value,
+                    diastolic_blood_pressure : diastolic_blood_pressure.value,
+                    triceps_thickness : triceps_thickness.value,
+                    serum_insulin : serum_insulin.value,
+                    bmi : bmi.value,
+                    diabetes_pedigree : diabetes_pedigree.value,
+                    age : age.value,
+                })
 
                 $.ajax({
                     type : "POST",
                     url : "http://127.0.0.1:10000/infer/diabetes",
                     data : data,
+                    contentType : "application/json",
+                    dataType : "json",
                     success : (response) => {
                         console.log(" ---------- ")
                         console.log(`Success, ${response["statusText"]}, ${response["statusCode"]}`)

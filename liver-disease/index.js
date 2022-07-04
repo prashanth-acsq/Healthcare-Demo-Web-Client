@@ -44,25 +44,25 @@ main = () => {
                     gender.value = 0
                 }
                 
-                let data = {
-                    web_client_data : JSON.stringify({
-                        gender : gender.value,
-                        total_billrubin : total_billrubin.value,
-                        direct_billrubin : direct_billrubin.value,
-                        alkphos_alkaline_phosphotase : alkphos_alkaline_phosphotase.value,
-                        sgpt_alamine_aminotransferase : sgpt_alamine_aminotransferase.value,
-                        sgot_aspartate_aminotransferase : sgot_aspartate_aminotransferase.value,
-                        total_protiens : total_protiens.value,
-                        alb_albumin : alb_albumin.value,
-                        ag_ratio : ag_ratio.value,
-                        age : age.value,
-                    })
-                }
+                let data = JSON.stringify({
+                    gender : gender.value,
+                    total_billrubin : total_billrubin.value,
+                    direct_billrubin : direct_billrubin.value,
+                    alkphos_alkaline_phosphotase : alkphos_alkaline_phosphotase.value,
+                    sgpt_alamine_aminotransferase : sgpt_alamine_aminotransferase.value,
+                    sgot_aspartate_aminotransferase : sgot_aspartate_aminotransferase.value,
+                    total_protiens : total_protiens.value,
+                    alb_albumin : alb_albumin.value,
+                    ag_ratio : ag_ratio.value,
+                    age : age.value,
+                })
 
                 $.ajax({
                     type : "POST",
                     url : "http://127.0.0.1:10000/infer/liver-disease",
                     data : data,
+                    contentType : "application/json",
+                    dataType : "json",
                     success : (response) => {
                         console.log(" ---------- ")
                         console.log(`Success, ${response["statusText"]}, ${response["statusCode"]}`)

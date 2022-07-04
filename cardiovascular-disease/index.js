@@ -55,26 +55,26 @@ main = () => {
                     gender.value = 1
                 }
                 
-                let data = {
-                    web_client_data : JSON.stringify({
-                        age : age.value,
-                        gender : gender.value,
-                        height : height.value,
-                        weight : weight.value,
-                        ap_high : ap_high.value,
-                        ap_low : ap_low.value,
-                        cholestrol : cholestrol.value,
-                        glucose : glucose.value,
-                        smoke : smoke.value,
-                        alcohol : alcohol.value,
-                        active : active.value,
-                    })
-                }
+                let data = JSON.stringify({
+                    age : age.value,
+                    gender : gender.value,
+                    height : height.value,
+                    weight : weight.value,
+                    ap_high : ap_high.value,
+                    ap_low : ap_low.value,
+                    cholestrol : cholestrol.value,
+                    glucose : glucose.value,
+                    smoke : smoke.value,
+                    alcohol : alcohol.value,
+                    active : active.value,
+                })
 
                 $.ajax({
                     type : "POST",
                     url : "http://127.0.0.1:10000/infer/cardiovascular-disease",
                     data : data,
+                    contentType : "application/json",
+                    dataType : "json",
                     success : (response) => {
                         console.log(" ---------- ")
                         console.log(`Success, ${response["statusText"]}, ${response["statusCode"]}`)
