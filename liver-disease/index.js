@@ -61,7 +61,7 @@ main = () => {
 
                 $.ajax({
                     type : "POST",
-                    url : "http://127.0.0.1:10000/liver-disease-infer/",
+                    url : "http://127.0.0.1:10000/infer/liver-disease",
                     data : data,
                     success : (response) => {
                         console.log(" ---------- ")

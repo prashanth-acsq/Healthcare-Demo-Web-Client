@@ -50,16 +50,16 @@ main = () => {
         }
         else{
 
-            let data = {
-                data : JSON.stringify({
-                    imageData : hidden_canvas_data,
-                }),
-            }
+            let data = JSON.stringify({
+                imageData : hidden_canvas_data,
+            })
 
             $.ajax({
                 type : "POST",
-                url : "http://127.0.0.1:10000/brain-mri-abnormality-infer/",
+                url : "http://127.0.0.1:10000/infer/brain-mri",
                 data : data,
+                contentType : "application/json",
+                dataType : "json",
                 success : (response) => {
                     console.log(" ---------- ")
                     console.log(`Success, ${response["statusText"]}, ${response["statusCode"]}`)

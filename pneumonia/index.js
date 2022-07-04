@@ -55,7 +55,7 @@ main = () => {
 
             $.ajax({
                 type : "POST",
-                url : "http://127.0.0.1:10000/pneumonia-pre-infer/",
+                url : "http://127.0.0.1:10000/infer/pneumonia",
                 data : data,
                 success : (response) => {
                     console.log(" ---------- ")

@@ -49,7 +49,7 @@ main = () => {
 
                 $.ajax({
                     type : "POST",
-                    url : "http://127.0.0.1:10000/diabetes-infer/",
+                    url : "http://127.0.0.1:10000/infer/diabetes",
                     data : data,
                     success : (response) => {
                         console.log(" ---------- ")
